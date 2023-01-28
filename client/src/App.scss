@@ -1,9 +1,32 @@
-:root {
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+// COLORS
+:root {
+  --text: #dcd7c9;
+  --main: #3f4e4f;
+  --bacground: #2c3639;
+  --sub: #a27b5c;
+}
+// FONTS
 
+@font-face {
+  font-family: "Montserrat";
+  src: url(./assets/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-Regular.ttf);
+}
+
+body {
+  background: var(--bacground);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}

@@ -1,10 +1,12 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
+import { Navigation } from "./components";
 import AppRouter from "./routes";
 
 function App() {
   return (
     <>
+      <Navigation />
       <AppRouter />
     </>
   );
