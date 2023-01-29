@@ -1,5 +1,6 @@
 import React from "react";
-import { VictoryBar } from "victory";
+import { VictoryBar, VictoryChart } from "victory";
+import s from "./index.module.scss";
 interface graphPropsEl {
   activity: number;
   date: number;
@@ -24,7 +25,13 @@ const store = [
 ];
 
 const Graph = ({ data }: graphProps) => {
-  return <div>{<VictoryBar data={store} y={"activity"} x={"date"} />}</div>;
+  return (
+    <div className={s.root}>
+      <VictoryChart title="Your Activity">
+        <VictoryBar data={store} y={"activity"} x={"date"} />
+      </VictoryChart>
+    </div>
+  );
 };
 
 export default Graph;

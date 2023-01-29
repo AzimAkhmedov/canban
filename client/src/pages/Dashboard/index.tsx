@@ -11,8 +11,10 @@ const data = [
   },
 ];
 const Dashboard = () => {
+  
   return (
-    <div>
+    <div style={{ color: "white" }}>
+    
       <Graph data={data} />
     </div>
   );
