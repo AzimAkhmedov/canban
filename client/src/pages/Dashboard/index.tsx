@@ -6,15 +6,15 @@ const data = [
     date: 23,
   },
   {
-    activity: 1,
-    date: 23,
+    activity: 2,
+    date: 244,
   },
 ];
 const Dashboard = () => {
-  
   return (
-    <div style={{ color: "white" }}>
-    
+    <div>
+
+      
       <Graph data={data} />
     </div>
   );
