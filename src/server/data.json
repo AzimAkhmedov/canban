@@ -1,0 +1,38 @@
+{
+  "todo": [
+    {
+      "id": 1,
+      "title": "Task Title...",
+      "body": "Task body about this task...",
+      "who": "Azim"
+    },
+    {
+      "id": 2,
+      "title": "Task Title2...",
+      "body": "Task body about this task2...",
+      "who": "Azim"
+    },
+    {
+      "id": 3,
+      "title": "Task Title3...",
+      "body": "Task body about this task3...",
+      "who": "Azim"
+    }
+  ],
+  "on-progress": [
+    {
+      "id": 1,
+      "title": "Task Title...",
+      "body": "Task body about this task...",
+      "who": "Azim"
+    }
+  ],
+  "done": [
+    {
+      "id": 1,
+      "title": "Task Title...",
+      "body": "Task body about this task...",
+      "who": "Azim"
+    }
+  ]
+}
