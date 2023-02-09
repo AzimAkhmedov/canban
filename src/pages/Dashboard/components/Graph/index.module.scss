@@ -1,4 +1,6 @@
-.root{
-    width: 500px;
-    height: 300px;
+.root {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  z-index: -1;
 }

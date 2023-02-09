@@ -1,3 +1,4 @@
+import { log } from "console";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./index.module.scss";
@@ -7,6 +8,8 @@ const Navigation = () => {
     isOpen: s.none,
   });
   const burgerToggle = () => {
+    console.log(active.list);
+
     if (active.list == s.disabled) {
       setActive({ ...active, list: s.list, isOpen: s.open });
     } else {

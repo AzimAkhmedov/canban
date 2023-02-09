@@ -13,8 +13,6 @@ const data = [
 const Dashboard = () => {
   return (
     <div>
-
-      
       <Graph data={data} />
     </div>
   );
