@@ -37,7 +37,7 @@ const Navigation = () => {
           <NavLink to={"/"}>Dashboard</NavLink>
         </li>
         <li>
-          <NavLink to={"/tasks"}>Schedule</NavLink>
+          <NavLink to={"/schedule"}>Schedule</NavLink>
         </li>
         <li>
           <NavLink to={"/boards"}>My Boards</NavLink>

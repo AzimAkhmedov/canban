@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <Navigation />
-      <Dashboard />
-      {/* <AppRouter /> */}
+      {/* <Dashboard /> */}
+      <AppRouter />
     </>
   );
 }

@@ -8,6 +8,10 @@ interface TaskProps {
   status: boolean;
 }
 const Task = ({ body, id, status, title, no }: TaskProps) => {
+  console.log(body);
+  console.log('йцукае');
+  
+
   return (
     <div className={s.card}>
       <h2>{title}</h2>
