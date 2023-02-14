@@ -9,8 +9,7 @@ interface TaskProps {
 }
 const Task = ({ body, id, status, title, no }: TaskProps) => {
   console.log(body);
-  console.log('йцукае');
-  
+  console.log("йцукае");
 
   return (
     <div className={s.card}>

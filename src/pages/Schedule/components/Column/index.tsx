@@ -1,5 +1,5 @@
 import React from "react";
-import Task from "../Tasks";
+import { Tasks } from "../index";
 import s from "./index.module.scss";
 interface taskProps {
   id: number;
@@ -16,21 +16,21 @@ interface ColumnProps {
 
 const Column = ({ data, id, title }: ColumnProps) => {
   console.log(data);
-  
+
   return (
     <div className={s.root}>
-      <h2>{title}</h2>
+      <h1>{title}</h1>
       <div className="">
-        {data.map(({ body, id, no, status, title }) => {
-          <Task
+        {data.map(({ body, id, no, status, title }) => (
+          <Tasks
             id={id}
             no={no}
             status={status}
             title={title}
             key={id}
             body={body}
-          />;
-        })}
+          />
+        ))}
       </div>
     </div>
   );
