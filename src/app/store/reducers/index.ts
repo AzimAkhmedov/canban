@@ -8,9 +8,11 @@ const initialState: ColumnState = {
     status: 'Loading',
     errorMessage: '',
 }
+
 export const fetchColums = createAsyncThunk('colums/fetchColums', getCols)
 export const deleteColums = createAsyncThunk('colums/deleteColums', deleteCol)
 export const addTaskCols = createAsyncThunk('colums/addTask', addTask)
+
 const columnsSlice = createSlice({
     name: "columns", initialState, reducers: {
         deleteColumns: (state, action) => {
@@ -18,7 +20,6 @@ const columnsSlice = createSlice({
                 (el) => el.id !== action.payload
             );
         },
-
     }, extraReducers: (builder) => {
         builder.addCase(fetchColums.pending, (state) => {
             state.status = 'Loading'
@@ -38,6 +39,11 @@ const columnsSlice = createSlice({
         }).addCase(deleteColums.rejected, (state, action) => {
             state.errorMessage = action.error.message
             state.status = 'Error'
+        }).addCase(addTaskCols.pending, (state) => {
+            state.status = 'Loading'
+        }).addCase(addTaskCols.fulfilled, (state, action) => {
+            state.cols[action.payload.index].list = [...state.cols[action.payload.index].list, action.payload.newTask]
+            state.status = 'Loaded'
         })
     }
 })

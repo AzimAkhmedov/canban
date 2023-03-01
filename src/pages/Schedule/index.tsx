@@ -20,8 +20,8 @@ const Schedule = () => {
   }, [status]);
   return status == "Loaded" ? (
     <div className={s.root}>
-      {cols.map(({ list, id, title }) => (
-        <Column list={list} id={id} title={title} key={id} />
+      {cols.map(({ list, id, title }, i) => (
+        <Column index={i} list={list} id={id} title={title} key={id} />
       ))}
     </div>
   ) : (

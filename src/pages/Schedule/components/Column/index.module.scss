@@ -1,4 +1,15 @@
 .root {
   width: 20%;
   height: 100%;
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    button {
+      background: none;
+      border: none;
+
+      font-size: 30px;
+    }
+  }
 }
