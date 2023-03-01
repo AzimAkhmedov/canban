@@ -1,38 +1,35 @@
 {
-  "todo": [
+  "columns": [
     {
       "id": 1,
-      "title": "Task Title...",
-      "body": "Task body about this task...",
-      "who": "Azim"
+      "title": "Todo",
+      "list": [
+        {
+          "id": 1,
+          "title": "Make an project",
+          "body": "Create An Valid proj"
+        }
+      ]
     },
     {
       "id": 2,
-      "title": "Task Title2...",
-      "body": "Task body about this task2...",
-      "who": "Azim"
+      "title": "On Proggress",
+      "list": []
     },
     {
       "id": 3,
-      "title": "Task Title3...",
-      "body": "Task body about this task3...",
-      "who": "Azim"
-    }
-  ],
-  "on-progress": [
+      "title": "Finished",
+      "list": []
+    },
     {
-      "id": 1,
-      "title": "Task Title...",
-      "body": "Task body about this task...",
-      "who": "Azim"
-    }
-  ],
-  "done": [
+      "id": 4,
+      "title": "Q/A",
+      "list": []
+    },
     {
-      "id": 1,
-      "title": "Task Title...",
-      "body": "Task body about this task...",
-      "who": "Azim"
+      "id": 5,
+      "title": "Approved",
+      "list": []
     }
   ]
 }
