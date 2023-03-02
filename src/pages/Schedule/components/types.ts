@@ -9,3 +9,4 @@ export interface ColumnProps {
     title: string;
     list: TaskProps[];
 }
+

@@ -1,6 +1,5 @@
 import axios from "axios";
-import { Tasks } from "../app/types";
-import { ColumnProps } from "../pages/Schedule/components/types";
+import { Tasks, Columns } from "../app/types";
 
 interface Payload {
     id: number
@@ -13,7 +12,7 @@ export const instance = axios.create({
 })
 
 
-export const getCols: () => Promise<ColumnProps[]> = async () => {
+export const getCols: () => Promise<Columns[]> = async () => {
     const res = await instance.get('')
     return res.data
 }
