@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getCols } from "../../api";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { fetchColums } from "../../app/store/reducers";
+import { Loader } from "../../components";
 import { Column } from "./components";
 import { ColumnProps } from "./components/types";
 import s from "./index.module.scss";
@@ -24,8 +25,10 @@ const Schedule = () => {
         <Column index={i} list={list} id={id} title={title} key={id} />
       ))}
     </div>
+  ) : errorMessage == "" ? (
+    <Loader />
   ) : (
-    <p>LOADING</p>
+    <div className={s.error}>Error: {errorMessage}</div>
   );
 };
 

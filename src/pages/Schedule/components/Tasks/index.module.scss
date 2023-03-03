@@ -1,0 +1,37 @@
+.card {
+  width: 100%;
+  padding: 10px 15px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: "Montserrat";
+  color: #fff;
+
+  border: 2px solid #fff;
+  .content {
+    font-size: 14px;
+    input {
+      outline: none;
+      background: none;
+      border: none;
+
+      font-size: 18px;
+      color: #fff;
+      width: 180px;
+      border: 2px solid red;
+      width: min-content;
+    }
+  }
+  .actions {
+    display: flex;
+    gap: 10px;
+    button {
+      background: none;
+      border: none;
+
+      color: #fff;
+      font-size: 17px;
+    }
+  }
+}

@@ -1,15 +1,25 @@
 .root {
   width: 20%;
   height: 100%;
+
   .title {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    justify-content: space-between;
+    
+    color: #fff;
+
     button {
+      font-size: 30px;
+      color: #fff;
+
       background: none;
       border: none;
-
-      font-size: 30px;
     }
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }

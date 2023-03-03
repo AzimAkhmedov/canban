@@ -15,8 +15,8 @@ const Column = ({ list, id, title, index }: ColumnProps) => {
   };
   return (
     <div className={s.root}>
-      <div className={s.title}>
-        <h1>{title}</h1>
+      <h1 className={s.title}>
+        {title}
         <button
           onClick={() =>
             dispatch(addTaskCols({ id, newTask, tasks: list, index }))
@@ -24,8 +24,9 @@ const Column = ({ list, id, title, index }: ColumnProps) => {
         >
           +
         </button>
-      </div>
-      <div className="">
+      </h1>
+
+      <div className={s.column}>
         {list.map(({ body, id, title }) => (
           <Task id={id} title={title} key={id} body={body} />
         ))}
