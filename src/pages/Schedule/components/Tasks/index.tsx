@@ -14,7 +14,12 @@ const Task = ({ body, id, title }: TaskProps) => {
     }
   };
   return (
-    <div className={s.card}>
+    <div
+      className={s.card}
+      onDrag={() => {
+        console.log("test");
+      }}
+    >
       <div className={s.content}>
         {isEditable ? (
           <input

@@ -21,14 +21,19 @@ const Schedule = () => {
   }, [status]);
   return status == "Loaded" ? (
     <div className={s.root}>
-      {cols.map(({ list, id, title }, i) => (
-        <Column index={i} list={list} id={id} title={title} key={id} />
-      ))}
+      <div className="container">
+        <button>add task column</button>
+        <div className={s.cols}>
+          {cols.map(({ list, id, title }, i) => (
+            <Column index={i} list={list} id={id} title={title} key={id} />
+          ))}
+        </div>
+      </div>
     </div>
   ) : errorMessage == "" ? (
     <Loader />
   ) : (
-    <div className={s.error}>Error: {errorMessage}</div>
+    <div className={s.error + " container"}>Error: {errorMessage}</div>
   );
 };
 

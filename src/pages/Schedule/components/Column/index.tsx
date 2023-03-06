@@ -13,6 +13,7 @@ const Column = ({ list, id, title, index }: ColumnProps) => {
     id: 10,
     title: "qwerwerqr",
   };
+
   return (
     <div className={s.root}>
       <h1 className={s.title}>

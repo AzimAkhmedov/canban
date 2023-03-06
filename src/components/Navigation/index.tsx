@@ -3,46 +3,26 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import s from "./index.module.scss";
 const Navigation = () => {
-  const [active, setActive] = useState({
-    list: s.disabled,
-    isOpen: s.none,
-  });
+  const [active, setActive] = useState<boolean>(false);
   const burgerToggle = () => {
-    console.log(active.list);
-
-    if (active.list == s.disabled) {
-      setActive({ ...active, list: s.list, isOpen: s.open });
-    } else {
-      setActive({ ...active, list: s.disabled, isOpen: s.none });
-    }
+    setActive(!active);
   };
   return (
     <div className={s.root}>
-      <div
-        className={
-          s.burger +
-          "  " +
-          s.burger_arrow +
-          " " +
-          s.burger_down +
-          " " +
-          active.isOpen
-        }
-        onClick={() => burgerToggle()}
-      >
-        <div className={s.burger_lines}></div>
+      <div className={s.sidebar + " " + (active ? s.active : s.disabled)}>
+        <ul>
+          <li>
+            <NavLink to={"/schedule"}>Schedule</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/board"}></NavLink>
+          </li>
+          <li>
+            <NavLink to={""}></NavLink>
+          </li>
+        </ul>
       </div>
-      <ul className={active.list}>
-        <li>
-          <NavLink to={"/"}>Dashboard</NavLink>
-        </li>
-        <li>
-          <NavLink to={"/schedule"}>Schedule</NavLink>
-        </li>
-        <li>
-          <NavLink to={"/boards"}>My Boards</NavLink>
-        </li>
-      </ul>
+      <button className={s.burger} onClick={burgerToggle}></button>
     </div>
   );
 };
