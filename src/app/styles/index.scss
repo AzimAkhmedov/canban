@@ -11,10 +11,6 @@
   --light-purple: #cd5888;
   --smoke: #e9e8e8;
 }
-body {
-  background: var(--black1);
-  color: var(--smoke);
-}
 .container {
   max-width: 1250px;
   width: 100%;
@@ -25,4 +21,10 @@ body {
 @font-face {
   font-family: "Roboto";
   src: url(fonts/Roboto-Regular.ttf);
+}
+
+body {
+  font-family: "Roboto";
+  background: var(--black1);
+  color: var(--smoke);
 }

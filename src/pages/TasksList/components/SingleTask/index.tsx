@@ -9,10 +9,12 @@ interface ISingleTask {
 const SingleTask = ({ body, date, id, title }: ISingleTask) => {
   return (
     <div className={s.root}>
-      <p>{id}</p>
-      <p>{title}</p>
-      <p>{body}</p>
-      <p>{date}</p>
+      <div>
+        {id}
+        {". " + title}
+      </div>
+      <div>{body}</div>
+      <div>{date}</div>
     </div>
   );
 };
