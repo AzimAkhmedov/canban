@@ -1,5 +1,5 @@
 import React from "react";
-
+import s from "./index.module.scss";
 interface ISingleTask {
   id: number;
   body: string;
@@ -8,7 +8,7 @@ interface ISingleTask {
 }
 const SingleTask = ({ body, date, id, title }: ISingleTask) => {
   return (
-    <div>
+    <div className={s.root}>
       <p>{id}</p>
       <p>{title}</p>
       <p>{body}</p>

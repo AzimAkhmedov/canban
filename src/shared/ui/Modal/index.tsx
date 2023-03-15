@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Modal = () => {
-  return (
-    <div>Modal</div>
-  )
-}
+const Modal = (children: React.ReactNode) => {
+  return <div>{children}</div>;
+};
 
-export default Modal
+export default Modal;

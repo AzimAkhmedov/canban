@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { fetchingTasks } from "../../app/store/tasks";
 import { useAppDispatch, useAppSelector } from "../../shared/hooks";
+import Loader from "../../shared/ui/Loader";
 import SingleTask from "./components/SingleTask";
 
 const TaskList = () => {
@@ -12,14 +13,14 @@ const TaskList = () => {
   }, []);
   useEffect(() => {
     console.log(data, loading, error);
-  }, [error]);
+  }, [data]);
   return loading == "Loading" ? (
-    <p>Loading</p>
-  ) : error!=undefined ? (
+    <Loader />
+  ) : error != undefined ? (
     <p>{error}</p>
   ) : (
-    <div>
-      <div className="container">
+    <div className="container">
+      <div>
         {data.map((e) => (
           <SingleTask
             body={e.body}
