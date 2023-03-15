@@ -36,6 +36,8 @@ const tasksSlice = createSlice({
             state.loading = "Loaded"
         }).addCase(fetchingTasks.rejected, (state) => {
             state.error = "Sorry, something went wrong there! Checkout your connection"
+            state.loading = "Loaded"
+            
         }).addCase(addingTask.pending, (state) => {
             state.loading = "Loading"
         }).addCase(addingTask.fulfilled, (state, action) => {
