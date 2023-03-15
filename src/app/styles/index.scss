@@ -5,9 +5,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  --black1: #20262e;
+  --purple1: #913175;
+  --light-purple: #cd5888;
+  --smoke: #e9e8e8;
+}
+body {
+  background: var(--black1);
+  color: var(--smoke);
+}
 .container {
   max-width: 1250px;
   width: 100%;
   margin: 0 auto;
   padding: 0 5%;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(fonts/Roboto-Regular.ttf);
 }
