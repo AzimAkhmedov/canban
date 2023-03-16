@@ -32,20 +32,56 @@ const AddTask = () => {
     if (newTask.body == "" || newTask.title == "") {
       console.log("q");
 
-      toast("Enter body and title before creating task🦄 !");
+      toast("Enter body and title before creating task🦄 !", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+     
+      });
       return;
     }
 
     if (newTask.title.length > 30) {
-      toast("Too large title 🦄!");
+      toast("Too large title 🦄!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+       
+      });
       return;
     }
     if (newTask.body.length > 90) {
-      toast("I know its annoying, but to large body 🦄!");
+      toast("I know its annoying, but to large body 🦄!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+     
+      });
       return;
     }
     if (newTask.body.length < 6 || newTask.title.length < 6) {
-      toast("Too short.... 🦄!");
+      toast("Too short.... 🦄!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+   
+      });
       return;
     }
     dispatch(
@@ -64,7 +100,7 @@ const AddTask = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+     
       });
     });
   };
