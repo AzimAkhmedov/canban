@@ -14,13 +14,7 @@ const SingleTask = ({ body, date, id, title, i }: ISingleTask) => {
   const list = useAppSelector((state) => state.tasks.data);
   const dispatch = useAppDispatch();
   const removeHandler = () => {
-    dispatch(deletingTask({ id, list: list.filter((el) => el.id != id) }))
-      .catch(() => {
-        toast("Sorry, some error has been detected while  deleting 🦄!");
-      })
-      .finally(() => {
-        toast("Successfully deleted 🦄!");
-      });
+    dispatch(deletingTask({ id, list: list.filter((el) => el.id != id) }));
   };
   return (
     <div className={s.root}>

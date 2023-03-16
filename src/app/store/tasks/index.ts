@@ -51,6 +51,9 @@ const tasksSlice = createSlice({
         }).addCase(deletingTask.fulfilled, (state, action) => {
             state.loading = "Loaded"
             state.data = action.payload.list
+        }).addCase(deletingTask.rejected, (state) => {
+            state.loading = "Loaded"
+            state.error = "Error by deleting"
         })
     }
 })
