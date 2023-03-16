@@ -9,3 +9,12 @@ export interface TasksState {
     loading: string
     error?: string
 }
+export interface TasksAddingProps {
+    title: string
+    body: string
+    date: string
+}
+export interface TasksDeletingProps {
+    id: number,
+    list: Tasks[]
+}

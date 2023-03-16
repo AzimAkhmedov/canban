@@ -1,4 +1,4 @@
-import { Tasks, TasksState } from "./types";
+import { Tasks, TasksAddingProps, TasksDeletingProps, TasksState } from "./types";
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { instance } from "../../../shared/api/instance";
 export const initialState: TasksState = {
@@ -17,9 +17,9 @@ export const addingTask = createAsyncThunk("tasks/addingTask", async (task: Task
     return { data, task };
 })
 
-export const deletingTask = createAsyncThunk("tasks/deletingTask", async (id) => {
+export const deletingTask = createAsyncThunk("tasks/deletingTask", async ({ id, list }: TasksDeletingProps) => {
     const { data } = await instance.delete('tasks/' + id)
-    return { data, id }
+    return { data, id, list }
 })
 
 export const editingTask = createAsyncThunk("tasks/editingTask", async (id, val) => {
@@ -37,13 +37,20 @@ const tasksSlice = createSlice({
         }).addCase(fetchingTasks.rejected, (state) => {
             state.error = "Sorry, something went wrong there! Checkout your connection"
             state.loading = "Loaded"
-            
+
         }).addCase(addingTask.pending, (state) => {
             state.loading = "Loading"
         }).addCase(addingTask.fulfilled, (state, action) => {
+            state.loading = 'Loaded'
             state.data.push(action.payload.task)
-        }).addCase(addingTask.rejected, (state, action) => {
+        }).addCase(addingTask.rejected, (state) => {
+            state.loading = 'Loaded'
             state.error = "Sorry, something went wrong there! Checkout your connection"
+        }).addCase(deletingTask.pending, (state, action) => {
+            state.loading = "Loading"
+        }).addCase(deletingTask.fulfilled, (state, action) => {
+            state.loading = "Loaded"
+            state.data = action.payload.list
         })
     }
 })
