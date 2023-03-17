@@ -12,10 +12,13 @@
       padding: 10px 15px;
       outline: none;
       font-size: 16px;
+      animation: showUp 0.5s;
     }
     .action {
       text-align: center;
       padding-top: 10px;
+      animation: showUp 0.3s;
+
       button {
         color: #fff;
         padding: 10px 15px;
@@ -23,5 +26,14 @@
         background-color: var(--light-purple);
       }
     }
+  }
+}
+
+@keyframes showUp {
+  0% {
+    transform: translateY(-1000px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

@@ -17,7 +17,12 @@ const SingleTask = ({ body, date, id, title, i }: ISingleTask) => {
     dispatch(deletingTask({ id, list: list.filter((el) => el.id != id) }));
   };
   return (
-    <div className={s.root}>
+    <div
+      className={s.root}
+      onDrag={(e) => {
+        console.log(e.clientX);
+      }}
+    >
       <div className={s.item}>
         {i}
         {". " + title}

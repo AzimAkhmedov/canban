@@ -30,8 +30,6 @@ const AddTask = () => {
   };
   const handleAdding = () => {
     if (newTask.body == "" || newTask.title == "") {
-      console.log("q");
-
       toast("Enter body and title before creating task🦄 !", {
         position: "top-right",
         autoClose: 5000,
@@ -40,12 +38,9 @@ const AddTask = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-     
+        type: "error",
       });
-      return;
-    }
-
-    if (newTask.title.length > 30) {
+    } else if (newTask.title.length > 250) {
       toast("Too large title 🦄!", {
         position: "top-right",
         autoClose: 5000,
@@ -54,11 +49,9 @@ const AddTask = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-       
+        type: "error",
       });
-      return;
-    }
-    if (newTask.body.length > 90) {
+    } else if (newTask.body.length > 500) {
       toast("I know its annoying, but to large body 🦄!", {
         position: "top-right",
         autoClose: 5000,
@@ -67,11 +60,9 @@ const AddTask = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-     
+        type: "error",
       });
-      return;
-    }
-    if (newTask.body.length < 6 || newTask.title.length < 6) {
+    } else if (newTask.body.length < 6 || newTask.title.length < 4) {
       toast("Too short.... 🦄!", {
         position: "top-right",
         autoClose: 5000,
@@ -80,37 +71,25 @@ const AddTask = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-   
+        type: "error",
       });
-      return;
+    } else {
+      dispatch(
+        addingTask({
+          date: dateGeneric(),
+          body: newTask.body,
+          title: newTask.title,
+          id: Date.now(),
+        })
+      ).finally(() => {
+        toast("Succesfully added!", { type: "success" });
+      });
     }
-    dispatch(
-      addingTask({
-        date: dateGeneric(),
-        body: newTask.body,
-        title: newTask.title,
-        id: Date.now(),
-      })
-    ).then(() => {
-      toast("Succesfully added 🦄!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-     
-      });
-    });
   };
   return (
     <div className={s.root}>
-      <h3>
-        Create and add new task{" "}
-        <span onClick={() => setAddingState(!addingState)}>
-          {addingState ? "-" : "+"}
-        </span>{" "}
+      <h3 onClick={() => setAddingState(!addingState)}>
+        Create and add new task <span>{addingState ? "-" : "+"}</span>{" "}
       </h3>
       {addingState ? (
         <div className={s.inputs}>

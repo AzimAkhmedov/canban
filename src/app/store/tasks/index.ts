@@ -1,6 +1,7 @@
 import { Tasks, TasksAddingProps, TasksDeletingProps, TasksState } from "./types";
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { instance } from "../../../shared/api/instance";
+import { toast } from "react-toastify";
 export const initialState: TasksState = {
     data: [],
     loading: "Loading",
@@ -51,6 +52,7 @@ const tasksSlice = createSlice({
         }).addCase(deletingTask.fulfilled, (state, action) => {
             state.loading = "Loaded"
             state.data = action.payload.list
+
         }).addCase(deletingTask.rejected, (state) => {
             state.loading = "Loaded"
             state.error = "Error by deleting"
