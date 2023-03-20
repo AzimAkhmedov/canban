@@ -2,7 +2,8 @@ export interface Tasks {
     id: number
     title: string
     body: string
-    date: string
+    date: string 
+    deadline: string
 }
 export interface TasksState {
     data: Tasks[]
@@ -15,6 +16,11 @@ export interface TasksAddingProps {
     date: string
 }
 export interface TasksDeletingProps {
-    id: number,
+    id: number
     list: Tasks[]
+}
+export interface TaskEditProps {
+    id: number
+    list: Tasks[]
+    val: Tasks
 }

@@ -28,6 +28,10 @@ body {
 
   background: var(--black1);
   color: var(--smoke);
-  
+
   padding-top: 20px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
 }

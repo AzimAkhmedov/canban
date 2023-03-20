@@ -22,10 +22,11 @@ const TaskList = () => {
         <AddTask />
       </div>
       <div>
+        {data.length == 0 ? "There is empty list" : <></>}
         {data.map((e, i) => (
           <SingleTask
             body={e.body}
-            date={e.date}
+            date={e.deadline}
             id={e.id}
             title={e.title}
             key={e.id}

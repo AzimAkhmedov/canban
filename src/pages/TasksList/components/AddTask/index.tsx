@@ -80,6 +80,7 @@ const AddTask = () => {
           body: newTask.body,
           title: newTask.title,
           id: Date.now(),
+          deadline: "qwewertyu",
         })
       ).finally(() => {
         toast("Succesfully added!", { type: "success" });

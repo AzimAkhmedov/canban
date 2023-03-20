@@ -1,4 +1,4 @@
-import { Tasks, TasksAddingProps, TasksDeletingProps, TasksState } from "./types";
+import { TaskEditProps, Tasks, TasksAddingProps, TasksDeletingProps, TasksState } from "./types";
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { instance } from "../../../shared/api/instance";
 import { toast } from "react-toastify";
@@ -23,9 +23,11 @@ export const deletingTask = createAsyncThunk("tasks/deletingTask", async ({ id, 
     return { data, id, list }
 })
 
-export const editingTask = createAsyncThunk("tasks/editingTask", async (id, val) => {
+export const editingTask = createAsyncThunk("tasks/editingTask", async ({ id, val, list }: TaskEditProps) => {
     const { data } = await instance.patch("tasks/" + id, val)
-    return { id, val, data }
+
+
+    return { id, val, list }
 })
 const tasksSlice = createSlice({
     name: "tasks", initialState, reducers: {
@@ -38,7 +40,6 @@ const tasksSlice = createSlice({
         }).addCase(fetchingTasks.rejected, (state) => {
             state.error = "Sorry, something went wrong there! Checkout your connection"
             state.loading = "Loaded"
-
         }).addCase(addingTask.pending, (state) => {
             state.loading = "Loading"
         }).addCase(addingTask.fulfilled, (state, action) => {
@@ -56,6 +57,15 @@ const tasksSlice = createSlice({
         }).addCase(deletingTask.rejected, (state) => {
             state.loading = "Loaded"
             state.error = "Error by deleting"
+        }).addCase(editingTask.pending, (state) => {
+            state.loading = "Loading"
+
+        }).addCase(editingTask.fulfilled, (state, action) => {
+            state.data = action.payload.list
+            state.loading = "Loaded"
+        }).addCase(editingTask.rejected, (state, action) => {
+            state.loading = "Loaded"
+            state.error = "Error in editing, try again"
         })
     }
 })
