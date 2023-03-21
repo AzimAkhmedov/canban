@@ -4,6 +4,7 @@ import { deletingTask } from "../../../../app/store/tasks";
 import { useAppDispatch, useAppSelector } from "../../../../shared/hooks";
 import { Task } from "../../../../shared/models";
 import s from "./index.module.scss";
+
 interface ISingleTask {
   id: number;
   body: string;
@@ -26,6 +27,7 @@ const SingleTask = ({ body, date, id, title, i }: ISingleTask) => {
     dispatch(deletingTask({ id, list: list.filter((el) => el.id != id) }));
   };
 
+  const editHandler = () => {};
   return (
     <div
       className={s.root}
@@ -33,18 +35,47 @@ const SingleTask = ({ body, date, id, title, i }: ISingleTask) => {
         console.log(e.clientX);
       }}
     >
-      <div className={s.item}>
-        <NavLink to={"/" + id}>
-          {i}
-          {". " + title}
-        </NavLink>
-      </div>
-      <div className={s.item}>{body}</div>
-      <div className={s.item}> Until: {date}</div>
+      {editable ? (
+        <>
+          <input
+            className={s.item}
+            value={newTask.title}
+            onChange={(e) => {
+              setNewTask({ ...newTask, title: e.target.value });
+            }}
+          />
+
+          <input
+            className={s.item}
+            value={newTask.body}
+            onChange={(e) => {
+              setNewTask({ ...newTask, body: e.target.value });
+            }}
+          />
+          <input
+            type={"date"}
+            className={s.item}
+            value={newTask.date}
+            onChange={(e) => {
+              setNewTask({ ...newTask, body: e.target.value });
+            }}
+          />
+
+          {/* <div className={s.item}> Until: {date}</div> */}
+        </>
+      ) : (
+        <>
+        <NavLink to={"/"+id}>
+          <div className={s.item}>{i+". "+title}</div>
+          </NavLink>
+          <div className={s.item}>{body}</div>
+          <div className={s.item}> Until: {date}</div>
+        </>
+      )}
       <div className={s.action}>
         {editable ? (
           <>
-            <button onClick={removeHandler}>Delete</button>
+            <button>Confirm</button>{" "}
           </>
         ) : (
           <>
