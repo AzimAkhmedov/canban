@@ -3,7 +3,9 @@
   display: flex;
 
   justify-content: space-between;
-
+  h3{
+    cursor: pointer;
+  }
   .inputs {
     display: flex;
     flex-direction: column;

@@ -7,6 +7,7 @@ import s from "./index.module.scss";
 interface ChangeProps {
   title: string;
   body: string;
+  deadline: string;
 }
 const AddTask = () => {
   const [addingState, setAddingState] = useState<boolean>(false);
@@ -14,6 +15,7 @@ const AddTask = () => {
   const [newTask, setNewTask] = useState({
     title: "",
     body: "",
+    deadline: "",
   });
   const handleChange = (newVal: ChangeProps) => {
     console.log(newVal, newTask);
@@ -31,46 +33,18 @@ const AddTask = () => {
   const handleAdding = () => {
     if (newTask.body == "" || newTask.title == "") {
       toast("Enter body and title before creating task🦄 !", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         type: "error",
       });
     } else if (newTask.title.length > 250) {
       toast("Too large title 🦄!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         type: "error",
       });
     } else if (newTask.body.length > 500) {
       toast("I know its annoying, but to large body 🦄!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         type: "error",
       });
     } else if (newTask.body.length < 6 || newTask.title.length < 4) {
       toast("Too short.... 🦄!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
         type: "error",
       });
     } else {
@@ -80,7 +54,7 @@ const AddTask = () => {
           body: newTask.body,
           title: newTask.title,
           id: Date.now(),
-          deadline: "qwewertyu",
+          deadline: newTask.deadline.replace("T", " Time:"),
         })
       ).finally(() => {
         toast("Succesfully added!", { type: "success" });
@@ -102,13 +76,20 @@ const AddTask = () => {
               handleChange({ ...newTask, title: e.target.value });
             }}
           />
-
           <input
             type="text"
             value={newTask.body}
             placeholder="Write your task or describe it"
             onChange={(e) => {
               handleChange({ ...newTask, body: e.target.value });
+            }}
+          />
+          Deadline:{" "}
+          <input
+            value={newTask.deadline}
+            type="datetime-local"
+            onChange={(e) => {
+              setNewTask({ ...newTask, deadline: e.target.value });
             }}
           />
           <div className={s.action}>

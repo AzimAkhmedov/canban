@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { deletingTask } from "../../../../app/store/tasks";
+import { toast } from "react-toastify";
+import { deletingTask, editingTask } from "../../../../app/store/tasks";
 import { useAppDispatch, useAppSelector } from "../../../../shared/hooks";
 import { Task } from "../../../../shared/models";
 import s from "./index.module.scss";
@@ -27,7 +28,21 @@ const SingleTask = ({ body, date, id, title, i }: ISingleTask) => {
     dispatch(deletingTask({ id, list: list.filter((el) => el.id != id) }));
   };
 
-  const editHandler = () => {};
+  const editHandler = () => {
+    list.forEach((e) => {
+      if (e.id === id) {
+        e = newTask;
+      }
+    });
+    try {
+      dispatch(editingTask({ id, val: newTask, list }));
+      setEditable(false);
+    } catch (error) {
+      toast("Something went wrong", { type: "error" });
+      return;
+    }
+    toast("Successfully edited", { type: "success" });
+  };
   return (
     <div
       className={s.root}
@@ -53,20 +68,21 @@ const SingleTask = ({ body, date, id, title, i }: ISingleTask) => {
             }}
           />
           <input
-            type={"date"}
+            type={"datetime-local"}
             className={s.item}
-            value={newTask.date}
             onChange={(e) => {
-              setNewTask({ ...newTask, body: e.target.value });
+              setNewTask({ ...newTask, deadline: e.target.value });
             }}
+            value={newTask.date}
+        
           />
 
           {/* <div className={s.item}> Until: {date}</div> */}
         </>
       ) : (
         <>
-        <NavLink to={"/"+id}>
-          <div className={s.item}>{i+". "+title}</div>
+          <NavLink to={"/" + id}>
+            <div className={s.item}>{i + ". " + title}</div>
           </NavLink>
           <div className={s.item}>{body}</div>
           <div className={s.item}> Until: {date}</div>
@@ -75,7 +91,7 @@ const SingleTask = ({ body, date, id, title, i }: ISingleTask) => {
       <div className={s.action}>
         {editable ? (
           <>
-            <button>Confirm</button>{" "}
+            <button onClick={editHandler}>Confirm</button>{" "}
           </>
         ) : (
           <>
