@@ -77,7 +77,6 @@ const SingleTask = ({ body, date, id, title, i }: ISingleTask) => {
         
           />
 
-          {/* <div className={s.item}> Until: {date}</div> */}
         </>
       ) : (
         <>

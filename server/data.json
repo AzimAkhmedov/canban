@@ -1,25 +1,11 @@
 {
   "tasks": [
     {
-      "date": "Monday, March 20",
-      "body": "Make a big brainshtorm, outline and designs to make it perfect ",
-      "title": "Create a valid project",
-      "deadline": "Monday, March 21 at 12:00",
-      "id": 1679336928743
-    },
-    {
-      "date": "Tuesday, March 21",
-      "body": "qeqweqeqe",
-      "title": "qweqwe",
-      "id": 1679380136483,
-      "deadline": "qwewertyu"
-    },
-    {
-      "date": "Tuesday, March 21",
-      "body": "положить 3 ложки саъара",
-      "title": "сделать кофе ",
-      "id": 1679380194705,
-      "deadline": "qwewertyu"
+      "date": "0003-12-13 Time:11:23",
+      "body": "123123123",
+      "title": "213123123123",
+      "id": 1680804669172,
+      "deadline": "0003-12-13 Time:11:23"
     }
   ]
 }
