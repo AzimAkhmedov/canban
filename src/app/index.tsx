@@ -8,7 +8,7 @@ const App = (children: React.ReactNode) => {
   return (
     <main className="app">
       <ToastContainer theme="dark" />
-    
+  
       {children}
     </main>
   );

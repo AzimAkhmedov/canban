@@ -44,7 +44,7 @@ const Navigation = () => {
         </li>
       </ul> */}
       <Button onClick={toggleDrawer("left", true)}>Menu</Button>
-      
+
       <SwipeableDrawer
         anchor={"left"}
         open={state}
@@ -52,16 +52,20 @@ const Navigation = () => {
         onOpen={toggleDrawer("left", true)}
       >
         <Box sx={{ width: 250 }}>
-          <List>
+          <List sx={{ alignItems: "center" }}>
             <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary={"Home"} />
-              </ListItemButton>
+              <NavLink to={"/"}>
+                <ListItemButton>
+                  <ListItemText primary={"Home"} />
+                </ListItemButton>
+              </NavLink>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary={"Tasks"} />
-              </ListItemButton>
+              <NavLink to={"/tasks"}>
+                <ListItemButton>
+                  <ListItemText primary={"Tasks"} />
+                </ListItemButton>
+              </NavLink>
             </ListItem>
           </List>
           <Divider />
